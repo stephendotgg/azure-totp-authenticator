@@ -1,0 +1,16 @@
+{
+  "name": "blog-2fa",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "func start",
+    "test": "echo \"No tests yet...\""
+  },
+  "dependencies": {
+    "@azure/functions": "^4.6.0",
+    "@azure/identity": "^4.6.0",
+    "@azure/keyvault-secrets": "^4.9.0",
+    "otp": "^1.1.2"
+  },
+  "main": "src/{index.js,functions/*.js}"
+}
