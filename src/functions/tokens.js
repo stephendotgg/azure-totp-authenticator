@@ -1,13 +1,6 @@
 const { app } = require('@azure/functions');
-const { DefaultAzureCredential } = require('@azure/identity');
-const { SecretClient } = require('@azure/keyvault-secrets');
+const { secretClient } = require('../lib/keyVault');
 const OTP = require('otp');
-
-// Initialize Key Vault client
-const credential = new DefaultAzureCredential();
-const vaultName = process.env.KEY_VAULT_NAME;
-const vaultUrl = `https://${vaultName}.vault.azure.net`;
-const secretClient = new SecretClient(vaultUrl, credential);
 
 app.http('tokens', {
     methods: ['GET'],
