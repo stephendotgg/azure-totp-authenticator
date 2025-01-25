@@ -105,8 +105,5 @@ app.http('accounts', {
                 }
             };
         }
-        
-
-        return { jsonBody: `Hello, ${name}!` };
     }
 });
