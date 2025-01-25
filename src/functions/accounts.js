@@ -48,12 +48,12 @@ app.http('accounts', {
                 throw new Error('URI must use otpauth:// protocol');
             }
 
-            if (!totpUrl.pathname.startsWith('//totp/')) {
+            if (totpUrl.host !== 'totp') {
                 throw new Error('URI must be for TOTP authentication');
             }
 
             // Extract the components
-            const accountName = decodeURIComponent(totpUrl.pathname.split('/')[3]);
+            const accountName = decodeURIComponent(totpUrl.pathname.split('/')[1]);
             const secret = totpUrl.searchParams.get('secret');
             const issuer = totpUrl.searchParams.get('issuer');
 
