@@ -17,10 +17,10 @@ app.http('accounts', {
         try {
             requestBody = await request.json();
         } catch (error) {
-            context.log('Error parsing request body:', error);
+            context.log('Error parsing request jsonBody:', error);
             return {
                 status: 400,
-                body: { 
+                jsonBody: { 
                     error: 'Invalid request format',
                     details: 'Request body must be valid JSON containing a TOTP URI'
                 }
@@ -32,7 +32,7 @@ app.http('accounts', {
         if (!uri || typeof uri !== 'string') {
             return {
                 status: 400,
-                body: { 
+                jsonBody: { 
                     error: 'Missing or invalid TOTP URI',
                     details: 'Request must include a "uri" field containing the TOTP setup URI'
                 }
@@ -87,7 +87,7 @@ app.http('accounts', {
 
                 return {
                     status: 201,
-                    body: {
+                    jsonBody: {
                         message: 'TOTP secret stored successfully',
                         secretName: secretName,
                         accountName: validatedData.accountName,
@@ -98,14 +98,14 @@ app.http('accounts', {
                 context.error('Error storing secret in Key Vault:', error);
                 return {
                     status: 500,
-                    body: { error: 'Failed to store TOTP secret' }
+                    jsonBody: { error: 'Failed to store TOTP secret' }
                 };
             }
         } catch (error) {
             context.log('Error validating TOTP URI:', error);
             return {
                 status: 400,
-                body: { 
+                jsonBody: { 
                     error: 'Invalid TOTP URI',
                     details: error.message
                 }
@@ -113,6 +113,6 @@ app.http('accounts', {
         }
         
 
-        return { body: `Hello, ${name}!` };
+        return { jsonBody: `Hello, ${name}!` };
     }
 });

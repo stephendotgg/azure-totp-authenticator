@@ -20,7 +20,7 @@ app.http('tokens', {
         if (!secretId || !secretId.startsWith('totp-')) {
             return {
                 status: 400,
-                body: { error: 'Invalid or missing secret ID. Must be in format: totp-{uuid}' }
+                jsonBody: { error: 'Invalid or missing secret ID. Must be in format: totp-{uuid}' }
             };
         }
 
@@ -39,7 +39,7 @@ app.http('tokens', {
 
             return {
                 status: 200,
-                body: {
+                jsonBody: {
                     token,
                     timeRemaining
                 }
@@ -48,7 +48,7 @@ app.http('tokens', {
             context.error('Error retrieving secret:', error);
             return {
                 status: 500,
-                body: { error: 'Failed to retrieve secret' }
+                jsonBody: { error: 'Failed to retrieve secret' }
             };
         }
     }
