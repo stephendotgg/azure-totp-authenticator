@@ -9,7 +9,7 @@ const vaultUrl = `https://${vaultName}.vault.azure.net`;
 const secretClient = new SecretClient(vaultUrl, credential);
 
 app.http('accounts', {
-    methods: ['GET', 'POST'],
+    methods: ['POST'],
     authLevel: 'anonymous',
     handler: async (request, context) => {
         // First, ensure we have a JSON payload
