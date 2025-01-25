@@ -1,6 +1,7 @@
 const { app } = require('@azure/functions');
 const { DefaultAzureCredential } = require('@azure/identity');
 const { SecretClient } = require('@azure/keyvault-secrets');
+const { randomUUID } = require('crypto');
 
 // Initialize Key Vault client
 const credential = new DefaultAzureCredential();
