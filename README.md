@@ -1,1 +1,0 @@
-A serverless TOTP (Time-based One-Time Password) authenticator built with Azure Functions and Azure Key Vault.
