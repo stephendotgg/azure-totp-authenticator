@@ -1,4 +1,4 @@
-# TOTP Authenticator App
+# Azure TOTP Authenticator
 
 This project demonstrates how to build a custom Time-based One-Time Password (TOTP) solution using Azure's cloud services. The application leverages Azure Functions for the backend API, Azure Key Vault for secure secrets management, and Azure Static Web Apps for the frontend. This solution supports the standard TOTP protocol (RFC 6238) and integrates seamlessly with services like GitHub and Microsoft's authentication systems.
 
